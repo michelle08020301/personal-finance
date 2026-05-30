@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\Debt;
+use App\Models\User;
+
+class DebtPolicy
+{
+    public function update(User $user, Debt $debt): bool
+    {
+        return $user->id === $debt->user_id;
+    }
+
+    public function delete(User $user, Debt $debt): bool
+    {
+        return $user->id === $debt->user_id;
+    }
+}
